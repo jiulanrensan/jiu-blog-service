@@ -3,6 +3,10 @@ const convert = require('koa-convert')
 const logger  = require('./middleware/logger')
 const app = new koa()
 const router = require('./routes')
+const koaBody = require('koa-body')
+
+// 用法 https://www.npmjs.com/package/koa-body
+app.use(koaBody())
 
 app.use(convert(logger()))
 
