@@ -1,0 +1,27 @@
+{
+  "parser": "babel-eslint",
+  "extends": "standard",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "promise"
+  ],
+  "ecmaFeatures": {
+    "arrowFunctions": true
+  },
+  // 0或者off表示规则关闭，出错也被忽略；
+  // 1或者warn表示如果出错会给出警告(不会导致程序退出)；
+  // 2或者error表示如果出错会报出错误(会导致程序退出，退出码是1)
+  "rules": {
+    // allow console
+    "no-console": 0,
+    // allow paren-less arrow functions
+    "arrow-parens": 0,
+    // allow async-await
+    "generator-star-spacing": 0,
+    // allow debugger during development
+    "no-debugger": 0
+  }
+}
