@@ -1,4 +1,6 @@
 import koaRouter from'koa-router'
+import query from '../service/db.js'
+
 const article = new koaRouter()
 
 // 获取文章列表
@@ -10,7 +12,8 @@ const article = new koaRouter()
  */
 article.get('/all', async (ctx) => {
   const {request} = ctx
-  ctx.body = request
+  const result = await query(`select * from article_list`)
+  ctx.body = result
 })
 
 export default article

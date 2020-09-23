@@ -1,5 +1,5 @@
 // 放置全局默认配置
-import {db} from './default.js'
+import {DB_CONFIG} from './default.js'
 export default {
-  db: db
+  dbConfig: DB_CONFIG
 }
