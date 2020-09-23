@@ -15,48 +15,50 @@
 // 注意：ctx.request是context经过封装的请求对象，ctx.req是context提供的node.js原生HTTP请求对象，
 // 同理ctx.response是context经过封装的响应对象，ctx.res是context提供的node.js原生HTTP响应对象
 
-const Router = require('koa-router')
+// const koaRouter = require('koa-router')
+
+// const home = new koaRouter()
+
+// home
+// .get('/', async (ctx) => {
+//   const url = ctx.url
+//   // request对象
+//   const {request} = ctx
+//   const {query: req_query, querystring: req_querystring} = request
+//   // 上下文直接获取
+//   const {query: ctx_query, querystring: ctx_querystring} = ctx
+//   ctx.body = {
+//     url,
+//     req_query,
+//     req_querystring,
+//     ctx_query,
+//     ctx_querystring
+//   }
+// })
+
+// const page = new koaRouter()
+// page
+// .post('/', async (ctx) => {
+//   let body = ''
+//   // ctx.req.addListener('data', (postDataChunk) => {
+//   //   // postDataChunk拿到的是二进制数据
+//   //   body += postDataChunk
+//   //   console.log('post数据',postDataChunk);
+//   // })
+//   // ctx.req.addListener('end', () => {
+// 	// 	console.log('接收post数据完毕', typeof body)
+//   // })
+//   // 使用中间件
+//   body = ctx.request.body
+//   ctx.body = body
+// })
+
 const koaRouter = require('koa-router')
-
-const home = new koaRouter()
-
-home
-.get('/', async (ctx) => {
-  const url = ctx.url
-  // request对象
-  const {request} = ctx
-  const {query: req_query, querystring: req_querystring} = request
-  // 上下文直接获取
-  const {query: ctx_query, querystring: ctx_querystring} = ctx
-  ctx.body = {
-    url,
-    req_query,
-    req_querystring,
-    ctx_query,
-    ctx_querystring
-  }
-})
-
-const page = new koaRouter()
-page
-.post('/', async (ctx) => {
-  let body = ''
-  // ctx.req.addListener('data', (postDataChunk) => {
-  //   // postDataChunk拿到的是二进制数据
-  //   body += postDataChunk
-  //   console.log('post数据',postDataChunk);
-  // })
-  // ctx.req.addListener('end', () => {
-	// 	console.log('接收post数据完毕', typeof body)
-  // })
-  // 使用中间件
-  body = ctx.request.body
-  ctx.body = body
-})
+const article = require('../controller/article')
 
 // 装载所有子路由
-const router = new Router()
-router.use('/', home.routes(), home.allowedMethods())
-router.use('/page', page.routes(), page.allowedMethods())
+const router = new koaRouter()
+router.use('/article', article.routes(), article.allowedMethods())
+// router.use('/page', page.routes(), page.allowedMethods())
 
 module.exports = router
