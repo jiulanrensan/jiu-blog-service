@@ -1,4 +1,4 @@
-const koaRouter = require('koa-router')
+import koaRouter from'koa-router'
 const article = new koaRouter()
 
 // 获取文章列表
@@ -13,5 +13,5 @@ article.get('/all', async (ctx) => {
   ctx.body = request
 })
 
-module.exports = article
+export default article
 

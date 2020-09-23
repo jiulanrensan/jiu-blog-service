@@ -53,12 +53,12 @@
 //   ctx.body = body
 // })
 
-const koaRouter = require('koa-router')
-const article = require('../controller/article')
+import koaRouter from'koa-router'
+import article from'../controller/article.js'
 
 // 装载所有子路由
 const router = new koaRouter()
 router.use('/article', article.routes(), article.allowedMethods())
 // router.use('/page', page.routes(), page.allowedMethods())
 
-module.exports = router
+export default router

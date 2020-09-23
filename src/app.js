@@ -1,14 +1,14 @@
-const koa = require('koa')
-const convert = require('koa-convert')
-const logger  = require('./middleware/logger')
+import koa from 'koa'
+import convert from 'koa-convert'
+import midLog from './middleware/logger.js'
+import router from './routes/index.js'
+import koaBody from 'koa-body'
 const app = new koa()
-const router = require('./routes')
-const koaBody = require('koa-body')
 
 // 用法 https://www.npmjs.com/package/koa-body
 app.use(koaBody())
 
-app.use(convert(logger()))
+app.use(convert(midLog()))
 
 // app.use(async (ctx) => {
 //   ctx.body = 'hello world'
