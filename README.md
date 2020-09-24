@@ -25,6 +25,8 @@ koa+mysql
 每次连接数据库都是很费时的操作，所以利用连接池管理与mysql的连接
 [参考](https://www.npmjs.com/package/mysql#pooling-connections)
 [设计mysql表](https://juejin.im/post/6844903805482434568)
+### 建表初始化
+[建表初始化](https://github.com/ChenShenhai/koa2-note/blob/master/note/mysql/init.md)
 
 ## babel
 [参考babel选择](https://juejin.im/post/6844903858632654856#heading-8)
