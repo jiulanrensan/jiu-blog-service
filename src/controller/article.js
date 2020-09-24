@@ -14,10 +14,7 @@ article.get('/all', async (ctx) => {
   const {request} = ctx
   const [err, data] = await ctx.state.awaitTo(query(`select * from article_list`))
   if (err) {
-    return ctx.body = {
-      code: '-1',
-      msg: 'error'
-    }
+    return ctx.body = ctx.state.uniformRes.succ(data)
   }
   ctx.body = data
 })

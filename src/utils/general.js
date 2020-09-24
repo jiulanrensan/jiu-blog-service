@@ -25,3 +25,28 @@ export function traverseFile (path, suffix) {
   })
   return fileList
 }
+
+export const uniformRes = new class {
+  constructor () {
+    this.response = {
+      code: -1,
+      msg: ''
+    }
+  }
+  succ (data) {
+    return Object.assign(this.response, {
+      code: 200,
+      msg: 'succ',
+      data: data ? data : null
+    })
+  }
+  err (msg, code) {
+    return Object.assign(this.response, {
+      code: code,
+      msg: msg
+    })
+  }
+  // _set () {
+  //   const argLen = arguments.length
+  // }
+}()
