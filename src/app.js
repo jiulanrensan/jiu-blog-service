@@ -3,7 +3,14 @@ import convert from 'koa-convert'
 import midLog from './middleware/logger.js'
 import router from './routes/index.js'
 import koaBody from 'koa-body'
+import { awaitTo } from './utils/general.js'
 const app = new koa()
+
+// 设置全局变量
+app.use(async (ctx, next) => {
+  ctx.state.awaitTo = awaitTo
+  await next()
+})
 
 // 用法 https://www.npmjs.com/package/koa-body
 app.use(koaBody())
