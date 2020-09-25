@@ -1,6 +1,5 @@
 import KoaRouter from 'koa-router'
 import articleModel from '../models/articleList.js'
-// import query from '../utils/db.js'
 
 const article = new KoaRouter()
 
@@ -15,7 +14,7 @@ article.get('/all', async (ctx) => {
   // const { request } = ctx
   const [err, data] = await articleModel.selectArticle()
   if (err) {
-    ctx.body = ctx.state.uniformRes.succ(data)
+    ctx.body = ctx.state.uniformRes.err(err)
     return false
   }
   ctx.body = data

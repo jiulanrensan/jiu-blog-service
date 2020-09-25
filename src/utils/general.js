@@ -30,7 +30,7 @@ export const uniformRes = new class {
   constructor () {
     this.response = {
       code: -1,
-      msg: ''
+      msg: 'error'
     }
   }
 
@@ -44,8 +44,8 @@ export const uniformRes = new class {
 
   err (msg, code) {
     return Object.assign(this.response, {
-      code: code,
-      msg: msg
+      code: code || code,
+      msg: msg || msg
     })
   }
   // _set () {

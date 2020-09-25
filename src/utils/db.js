@@ -39,4 +39,29 @@ const query = function (sql, values) {
   })
 }
 
-export default query
+/**
+ * @description 拼接where sql语句
+ * @param {Object} model 参数
+ * @return {String} sql语句
+ */
+const whereSqlJoin = function (model) {
+  const modelKeysArr = Object.keys(model)
+  if (!modelKeysArr.length) return ''
+  let whereSql = 'where '
+  modelKeysArr.forEach((el, idx) => {
+    let sql = ''
+    if (model[el] !== '') {
+      sql = `${el} = '${model[el]}'`
+      sql += `${idx !== modelKeysArr.length - 1 ? ' and ' : ''}`
+    }
+    whereSql += sql
+  })
+  return whereSql
+}
+
+const dbUtil = {
+  query,
+  whereSqlJoin
+}
+
+export default dbUtil

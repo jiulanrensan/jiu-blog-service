@@ -55,10 +55,11 @@
 
 import KoaRouter from 'koa-router'
 import article from '../controller/article.js'
+import user from '../controller/user.js'
 
 // 装载所有子路由
 const router = new KoaRouter()
 router.use('/article', article.routes(), article.allowedMethods())
-// router.use('/page', page.routes(), page.allowedMethods())
+router.use('/user', user.routes(), user.allowedMethods())
 
 export default router
