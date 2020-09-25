@@ -23,15 +23,22 @@ ESlint Rules for the Standard Linter
 ### eslint-config-standard
 ### scripts 命令行
 ```
-"lint": "eslint --ext .js --ext .jsx --ext .vue src/"
+"lint": "eslint --fix --ext .js src/"
 ```
-ext后面需要写上指定检测文件的后缀，如.js、.jsx、 .vue等，紧接着后面要写上一个参数，这个参数就是我们要检测哪个目录下面的文件，一般项目文件都在src下面，所以在后面写上src/就好
+1. ext后面需要写上指定检测文件的后缀,`.js`表示检测js文件
+2. `--fix`表示自动修复
+3. `src/`表示某个目录下
+
+```
+"start": "nodemon --exec \"npm run lint && node src/app.js\""
+```
+启动前先执行语法检查再
 
 ## koa
 ### koa-convert
 generator 中间件在koa2中需要用koa-convert封装一下才能使用
 ### koa-body
-处理post请求数据处理
+处理post请求数据处理，具体见`src/routes/index.js`注释
 
 [解析post数据中间件选择](https://juejin.im/post/6844903944628502542)
 
