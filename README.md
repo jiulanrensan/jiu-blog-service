@@ -4,6 +4,9 @@ koa+mysql
 # koa学习
 [Koa2进阶学习笔记](https://github.com/chenshenhai/koa2-note)
 
+# 项目目录
+实现mvc分层，[参考](https://github.com/ChenShenhai/koa2-note/blob/master/note/project/layer.md)
+
 # 依赖
 ## nodemon
 默认全局安装nodemon
