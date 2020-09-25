@@ -1,8 +1,8 @@
-import koaRouter from'koa-router'
+import KoaRouter from 'koa-router'
 import articleModel from '../models/articleList.js'
 // import query from '../utils/db.js'
 
-const article = new koaRouter()
+const article = new KoaRouter()
 
 // 获取文章列表
 /**
@@ -12,13 +12,13 @@ const article = new koaRouter()
  * }
  */
 article.get('/all', async (ctx) => {
-  const {request} = ctx
+  // const { request } = ctx
   const [err, data] = await articleModel.selectArticle()
   if (err) {
-    return ctx.body = ctx.state.uniformRes.succ(data)
+    ctx.body = ctx.state.uniformRes.succ(data)
+    return false
   }
   ctx.body = data
 })
 
 export default article
-

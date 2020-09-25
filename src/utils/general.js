@@ -1,7 +1,7 @@
 import fs from 'fs'
 /**
  * @description 将promise结果返回一个数组形式的值,代替trycatch
- * @param {Promise} promise 
+ * @param {Promise} promise
  * @return {Array} array
  */
 export function awaitTo (promise) {
@@ -33,13 +33,15 @@ export const uniformRes = new class {
       msg: ''
     }
   }
+
   succ (data) {
     return Object.assign(this.response, {
       code: 200,
       msg: 'succ',
-      data: data ? data : null
+      data: data || null
     })
   }
+
   err (msg, code) {
     return Object.assign(this.response, {
       code: code,

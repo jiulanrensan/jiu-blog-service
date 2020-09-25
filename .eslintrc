@@ -22,6 +22,16 @@
     // allow async-await
     "generator-star-spacing": 0,
     // allow debugger during development
-    "no-debugger": 0
+    "no-debugger": 0,
+    // 禁止不必要的布尔转换
+    "no-extra-boolean-cast": 1,
+    // 禁止不必要的分号
+    "no-extra-semi": 1,
+    // 禁止在字符串和注释之外不规则的空白
+    "no-irregular-whitespace": 1,
+    // 要求使用camelcase
+    "camelcase": ["warn", {
+      "properties": "always"
+    }]
   }
 }

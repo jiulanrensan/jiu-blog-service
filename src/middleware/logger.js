@@ -16,7 +16,7 @@
 // async中间件
 // 只能在koa2中使用
 function logger (ctx) {
-  console.log( ctx.method, ctx.header.host + ctx.url )
+  console.log(ctx.method, ctx.header.host + ctx.url)
 }
 const midLog = function () {
   return async function (ctx, next) {

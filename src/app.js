@@ -1,10 +1,10 @@
-import koa from 'koa'
+import Koa from 'koa'
 import convert from 'koa-convert'
 import midLog from './middleware/logger.js'
 import router from './routes/index.js'
-import koaBody from 'koa-body'
+import KoaBody from 'koa-body'
 import { awaitTo, uniformRes } from './utils/general.js'
-const app = new koa()
+const app = new Koa()
 
 // 设置全局变量
 app.use(async (ctx, next) => {
@@ -14,7 +14,7 @@ app.use(async (ctx, next) => {
 })
 
 // 用法 https://www.npmjs.com/package/koa-body
-app.use(koaBody())
+app.use(KoaBody())
 
 app.use(convert(midLog()))
 

@@ -20,6 +20,12 @@ koa+mysql
 promise规范写法检查插件，附带了一些校验规则
 ### eslint-plugin-standard
 ESlint Rules for the Standard Linter
+### eslint-config-standard
+### scripts 命令行
+```
+"lint": "eslint --ext .js --ext .jsx --ext .vue src/"
+```
+ext后面需要写上指定检测文件的后缀，如.js、.jsx、 .vue等，紧接着后面要写上一个参数，这个参数就是我们要检测哪个目录下面的文件，一般项目文件都在src下面，所以在后面写上src/就好
 
 ## koa
 ### koa-convert

@@ -40,24 +40,24 @@
 // page
 // .post('/', async (ctx) => {
 //   let body = ''
-//   // ctx.req.addListener('data', (postDataChunk) => {
-//   //   // postDataChunk拿到的是二进制数据
-//   //   body += postDataChunk
-//   //   console.log('post数据',postDataChunk);
-//   // })
-//   // ctx.req.addListener('end', () => {
-// 	// 	console.log('接收post数据完毕', typeof body)
-//   // })
+//   ctx.req.addListener('data', (postDataChunk) => {
+//     // postDataChunk拿到的是二进制数据
+//     body += postDataChunk
+//     console.log('post数据',postDataChunk);
+//   })
+//   ctx.req.addListener('end', () => {
+//     console.log('接收post数据完毕', typeof body)
+//   })
 //   // 使用中间件
 //   body = ctx.request.body
 //   ctx.body = body
 // })
 
-import koaRouter from'koa-router'
-import article from'../controller/article.js'
+import KoaRouter from 'koa-router'
+import article from '../controller/article.js'
 
 // 装载所有子路由
-const router = new koaRouter()
+const router = new KoaRouter()
 router.use('/article', article.routes(), article.allowedMethods())
 // router.use('/page', page.routes(), page.allowedMethods())
 
